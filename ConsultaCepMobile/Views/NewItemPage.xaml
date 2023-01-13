@@ -8,13 +8,17 @@
              ios:Page.UseSafeArea="true">
     <ContentPage.Content>
         <StackLayout Spacing="3" Padding="15">
-            <Label Text="Text" FontSize="Medium" />
-            <Entry Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" />
-            <Label Text="Description" FontSize="Medium" />
-            <Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+            <Label Text="CEP" FontSize="Medium" />
+            <Entry x:Name="TextCepADD" Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" />
+            <Label Text="Logradouro" FontSize="Medium" />
+            <Editor x:Name="lbl_logradouro" Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
             <StackLayout Orientation="Horizontal">
+                <Button Text="Pesquisar"
+                        Clicked="MetodoPesquisaCEP"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
                 <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
-                <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Save" Command="{Binding SaveCommand}"  Clicked="MetodoPesquisaCEP" HorizontalOptions="FillAndExpand"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -1,4 +1,5 @@
 ﻿using ConsultaCepMobile.Models;
+using ConsultaCepMobile.Services;
 using ConsultaCepMobile.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,16 @@ namespace ConsultaCepMobile.Views
         {
             InitializeComponent();
             BindingContext = new NewItemViewModel();
+        }
+
+        private void MetodoPesquisaCEP(object sender, EventArgs e)
+        {
+            PesquisaCEP pesquisaCEP = new PesquisaCEP();
+
+            ViaCEP oViacep = new ViaCEP();
+            oViacep = pesquisaCEP.Consulta(TextCepADD.Text);
+
+            lbl_logradouro.Text = oViacep.logradouro;
         }
     }
 }
